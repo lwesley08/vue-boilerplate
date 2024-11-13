@@ -1,0 +1,4 @@
+// Mixins and Variables that will be imported in all scss files
+// This is only mixins and variables which need to be imported, not classes or other styling that will be inherited
+@import 'utilities/responsivity.scss';
+@import 'variables';

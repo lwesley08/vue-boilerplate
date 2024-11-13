@@ -1,0 +1,77 @@
+@mixin laptopAndAbove {
+  @media only screen and (min-width: $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin desktopAndAbove {
+  @media only screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tabletAndAbove {
+  @media only screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tabletAndBelow {
+  @media only screen and (max-width: calc($breakpoint-desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $breakpoint-tablet) and (max-width: calc($breakpoint-desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: calc($breakpoint-tablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin contentContainer {
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @include tabletAndAbove {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  @include laptopAndAbove {
+    padding-right: 100px;
+    padding-left: 120px;
+  }
+
+  @include desktopAndAbove {
+    padding-right: calc((100% - 1160px) / 2);
+    padding-left: calc((100% - 1160px) / 2);
+  }
+}
+
+@mixin contentContainerSmall {
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  justify-content: center;
+
+  @include tabletAndAbove {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  & > div {
+    width: 730px;
+  }
+}
